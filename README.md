@@ -11,7 +11,8 @@ As far as I, and the [first page](https://xkcd.com/1334/) of google results can 
 ## Ok, but ***why*** though?
 Alright, consider the example from Lit's [own tutorial](https://lit.dev/tutorial/). To keep it simple, lets only look at the javascript version (use the little slider in the corner), no need to complicate with Typescript yet. The code it presents is:
 
-```import {LitElement, html} from 'lit';
+```
+import {LitElement, html} from 'lit';
 
 class MyElement extends LitElement {
   static properties = {
@@ -35,7 +36,8 @@ customElements.define('my-element', MyElement);
 Straightforward, elegant, blistering fast, and 100% es module (and therefore modern browser natively) compliant. Basically everything you love about Lit. Unfortunately, if you were to actually try to deploy it in a browser as written, it doesn't actually work. The reason is that whole ```import {LitElement, html} from 'lit';``` thing. Browsers are unable to resolve node dependencies, and have no way of figuring out what or where ```'lit'``` is.
 
 Enter lit-portable. Take the same code, but with a minor substitition: 
-```import {LitElement, html} from './lit-portable.js';
+```
+import {LitElement, html} from './lit-portable.js';
 
 class MyElement extends LitElement {
   static properties = {
