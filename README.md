@@ -1,4 +1,4 @@
-### Lit-portable
+# Lit-portable
 
 This is a bundled version of the [lit](https://lit.dev) library, meant for consumption in modern browsers.
 
@@ -16,14 +16,14 @@ As of now, the only components included are the core lit library, and lit/decora
 
 I say with all sincerity, if you have to ask, probably not. The main lit library has the workflow it has for a reason, and it has served them, and the community very well all this time. Lit-portable is admittedly targeted at a somewhat niche subset of the lit using community.
 
-# Who should *not* be using lit-portable
+### Who should *not* be using lit-portable
 
 - Anyone looking to contrubute to the core lit library itself
 - Anyone looking to use lit in a server side application. Stick to lit.
 - Anyone concerned with compatibility with older browsers. This is seriously an important factor for most developers, and lit-portable is unashamedly targeted at modern, ecma-module compliant browsers only. While polyfills will work on older browsers, you'll still have to re-bundle, and it pretty much negates anything lit-portable could add in terms of simplicity, speed, and performance.
 - Anyone using a single lit-based web component. No size or speed savings to be had here, just use and bundle lit.
 
-# Who might want to look at lit portable?
+### Who might want to look at lit portable?
 
 If you, on the other hand:
 - Are certain that your userbase will be using modern, relatively up to date browsers
@@ -35,17 +35,17 @@ then lit-portable might be for you.
 
 Lit-portable is 100% compatible with the equivalent version of lit.
 
-# Versioning
+### Versioning
 
 The version of lit-portable will always follow that of the main lit library.
 
-# What if I want to request features, report bugs, donate, or contribute?
+### What if I want to request features, report bugs, donate, or contribute?
 
 Any and all requests, bug reports, donations, contributions, stars, or glory should go to the original lit team. While they do not oversee this project, again, lit portable will remain 100% compatible, and whenever lit releases a new version, so will I. I will not be independantly fixing bugs and breaking compatibility.
 
 The only exception to this will be things specific to the bundle, ie: requests to add lit components to the bundle.
 
-# What if lit releases an offical portable version?
+### What if lit releases an offical portable version?
 Nothing would make me happier, and this project would cheerfully cease to exist.
 
 ## Are you affiliated with the Lit project?
