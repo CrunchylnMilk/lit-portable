@@ -1,6 +1,6 @@
 # Lit-portable
 
-This is a bundled version of the [lit](https://lit.dev) library, meant for consumption in modern browsers.
+This is simply a bundled version of the [lit](https://lit.dev) library, meant for consumption in modern browsers. Right now, ```lit``` and ```lit/decorators.js``` are included.
 
 ## Ok, but why though?
 
