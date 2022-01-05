@@ -1,6 +1,6 @@
 # Lit-portable
 
-This is simply a bundled version of the [lit](https://lit.dev) library, meant for consumption in modern browsers. Right now, ```lit``` and ```lit/decorators.js``` are included.
+This is simply a bundled version of the [Lit](https://lit.dev) library for web components, meant for consumption in modern browsers. Right now, only ```lit``` and ```lit/decorators.js``` are included.
 
 ## Ok, but why though?
 
@@ -14,7 +14,7 @@ As of now, the only components included are the core lit library, and lit/decora
 
 ## Should I be using lit-portable?
 
-I say with all sincerity, if you have to ask, probably not. The main lit library has the workflow it has for a reason, and it has served them, and the community very well all this time. Lit-portable is admittedly targeted at a somewhat niche subset of the lit using community.
+I say with all sincerity, if you have to ask, probably not. The OG Lit library has the workflow it has for a reason, and it has served them and the Lit community very well all this time. Lit-portable is admittedly targeted at a somewhat niche subset of the lit using community.
 
 ### Who should *not* be using lit-portable
 
@@ -27,7 +27,7 @@ I say with all sincerity, if you have to ask, probably not. The main lit library
 
 If you, on the other hand:
 - Are certain that your userbase will be using modern, relatively up to date browsers
-- Are deploying multiple lit-based components
+- Are deploying multiple lit-based components per page
 
 then lit-portable might be for you.
 
