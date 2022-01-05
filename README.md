@@ -65,7 +65,7 @@ Deployed as written, it works perfectly. In this example, we have lit-portable b
 
 ## What is included?
 
-As of now, the only components included are the core lit library, and lit/decorators.js (to ease typescript development). I'm trying to strike a balance between functionality and bundle size. Additional lit components (IE: ```lit/<something>.js```) *may* be included in the future if there is demand. There are no plans to ever include any of the lit labs.
+As of now, the only components included are the core ```lit``` library, and ```lit/decorators.js``` (to ease typescript development). I'm trying to strike a balance between functionality and bundle size. Additional lit components (IE: ```lit/<something>.js```) *may* be included in the future if there is demand. There are no plans to ever include any of the lit labs.
 
 ## Should I be using lit-portable?
 
