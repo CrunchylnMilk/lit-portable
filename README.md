@@ -4,9 +4,62 @@ This is simply a bundled version of the [Lit](https://lit.dev) library for web c
 
 ## Ok, but why though?
 
-Lit is a great library for producing standard web components, but the current workflow involves bundling the library with the components developed. For most websites, this is fine. If however, you want to deploy a lot of lit based elements on your page, this can result in a lot of redundant code being downloaded. By splitting the library from the code, it only needs to be downladed once, speeding delivery and saving bandwidth. These effects can be further amplifed by pulling lit-portable from a solid CDN.
+Lit is a great library for producing standard web components, but the current workflow involves bundling the library with the components developed. For most websites, this is fine. If however, you want to deploy a lot of lit based elements on your page, this can result in a lot of redundant code being downloaded. With the advent of modern browsers and their native es module support, there is a better way. By splitting the library from the code, it only needs to be downladed once, speeding delivery and saving bandwidth. These effects can be further amplifed by pulling lit-portable from a solid CDN. A tertiary benefit can be observed in the form of caching when web components are updated; by keeping the library separate, only the updated component code need be re-downloaded. For more information, see Philip Walton's [excellent post](https://philipwalton.com/articles/using-native-javascript-modules-in-production-today/) on the subject.
 
-As far as I, and the first page of google results can tell, there is no official version of lit bundled for this purpose at this time, and as browsers are incapable of node-style dependency resolution at this time, trying to externally import the main lit library into a browser does not work.
+As far as I, and the [first page](https://xkcd.com/1334/) of google results can tell, there is no official version of Lit bundled for this purpose at this time, and as browsers are incapable of node-style dependency resolution, trying to externally import the main lit library into a browser does not work.
+
+## Ok, but ***why*** though?
+Alright, consider the example from Lit's [own tutorial](https://lit.dev/tutorial/). To keep it simple, lets only look at the javascript version (use the little slider in the corner), no need to complicate with Typescript yet. The code it presents is:
+
+```import {LitElement, html} from 'lit';
+
+class MyElement extends LitElement {
+  static properties = {
+    version: {},
+  };
+
+  constructor() {
+    super();
+    this.version = 'STARTING';
+  }
+
+  render() {
+    return html`
+    <p>Welcome to the Lit tutorial!</p>
+    <p>This is the ${this.version} code.</p>
+    `;
+  }
+}
+customElements.define('my-element', MyElement);
+```
+Straightforward, elegant, blistering fast, and 100% es module (and therefore modern browser natively) compliant. Basically everything you love about Lit. Unfortunately, if you were to actually try to deploy it in a browser as written, it doesn't actually work. The reason is that whole ```import {LitElement, html} from 'lit';``` thing. Browsers are unable to resolve node dependencies, and have no way of figuring out what or where ```'lit'``` is.
+
+Enter lit-portable. Take the same code, but with a minor substitition: 
+```import {LitElement, html} from './lit-portable.js';
+
+class MyElement extends LitElement {
+  static properties = {
+    version: {},
+  };
+
+  constructor() {
+    super();
+    this.version = 'STARTING';
+  }
+
+  render() {
+    return html`
+    <p>Welcome to the Lit tutorial!</p>
+    <p>This is the ${this.version} code.</p>
+    `;
+  }
+}
+customElements.define('my-element', MyElement);
+```
+
+Deployed as written, it works perfectly. In this example, we have lit-portable being served from the same host and directoy as the web component script, but that ```./lit-portable.js``` could also just as easily be ```<https://<YOUR_CDN_OF_CHOICE>/lit-portable.js```. This is where the savings come in for multiple components - for one web component on a page, there's no real difference if it's bundled like classic Lit web components or done using lit-portable. The component code and library are each downloaded once. If you have two different components on the page however, it definately matters. If you bundle the library to each component, each components code is downloaded once, and the library is downloaded twice - once for each element. Using lit-portable, each component's code is also downloaded once, but the library is only downloaded *once*.
+
+
 
 ## What is included?
 
