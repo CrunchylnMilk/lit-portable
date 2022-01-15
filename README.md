@@ -2,6 +2,8 @@
 
 This is simply a bundled version of the [Lit](https://lit.dev) library for web components, meant for consumption in modern browsers. Right now, only ```lit``` and ```lit/decorators.js``` are included.
 
+The eventual goal is to have a library of cloud-based components which can be pulled down and used with nothing more than a simple line in an html file, and this library is the backbone of that effort.
+
 ## Ok, but why though?
 
 Lit is a great library for producing standard web components, but the current workflow involves bundling the library with the components developed. For most websites, this is fine. If however, you want to deploy a lot of lit based elements on your page, this can result in a lot of redundant code being downloaded. With the advent of modern browsers and their native es module support, there is a better way. By splitting the library from the code, it only needs to be downladed once, speeding delivery and saving bandwidth. These effects can be further amplifed by pulling lit-portable from a solid CDN. A tertiary benefit can be observed in the form of caching when web components are updated; by keeping the library separate, only the updated component code need be re-downloaded. For more information, see Philip Walton's [excellent post](https://philipwalton.com/articles/using-native-javascript-modules-in-production-today/) on the subject.
