@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      "composite": true,
+      "composite": false,
       "target": "es2021",
       "module": "es2020",
       "lib": ["ES2021","DOM", "DOM.Iterable"],

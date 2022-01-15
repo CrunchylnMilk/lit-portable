@@ -1,6 +1,6 @@
 {
   "name":"lit-portable",
-  "version": "2.0.2",
+  "version": "2.1.1",
   "description": "A portable bundle of lit; meant for consumption in modern browsers.",
   "license" : "BSD-3-Clause",
   "browser":"lit-portable.js",
